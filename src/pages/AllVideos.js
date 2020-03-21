@@ -1,25 +1,28 @@
 import React, { useEffect, useContext } from "react";
 import { store } from "../modules/store.js";
 import { getAuthenticated } from "../modules/fetch";
-import { restUrl } from "../modules/settings";
+import { restGetVideosUrl } from "../modules/settings";
 import Navigation from "../components/Navigation";
 import Video from "../components/Video";
 
 export default function AllVideos(props) {
   const { state, dispatch } = useContext(store);
   useEffect(() => {
-    //TODO, I only get the first 10 (multiple pages)
+    if (state.videos.length > 0) {
+      return;
+    }
     getAuthenticated(
-      `${restUrl}videos?_fields=id,title.rendered,content.rendered,path&per_page=10`,
+      restGetVideosUrl,
       state.user.accessToken,
       data => {
         dispatch({
-          type: "setVideos",
+          type: "addToVideos",
           payload: data
         });
-      }
+      },
+      true
     );
-  }, [dispatch, state.user.accessToken]);
+  }, [dispatch, state.user.accessToken, state.videos.length]);
   return (
     <>
       <Navigation />

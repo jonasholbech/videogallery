@@ -6,7 +6,7 @@ export const restGetPlaylistsUrl =
 export const restPostPlaylistUrl =
   "https://jonasholbech.dk/video_api/wp-json/wp/v2/playlists/";
 export const restGetVideosUrl =
-  "https://jonasholbech.dk/video_api/wp-json/wp/v2/videos?_fields=id,title.rendered,content.rendered,path";
+  "https://jonasholbech.dk/video_api/wp-json/wp/v2/videos?_fields=id,title.rendered,content.rendered,path&per_page=100";
 export const restUpdatePlaylistUrlBase =
   "https://jonasholbech.dk/video_api/wp-json/wp/v2/playlists/";
 export const restUpdatePlaylistUrlFields =

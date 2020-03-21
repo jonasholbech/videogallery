@@ -16,16 +16,32 @@ export function post(url, payload, callback) {
     .then(res => res.json())
     .then(callback);
 }
-export function getAuthenticated(url, token, callback) {
-  fetch(url, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`
-    }
-  })
-    .then(res => res.json())
-    .then(callback);
+export function getAuthenticated(url, token, callback, all = false) {
+  //TODO: this assumes there's already an "?" in the url
+
+  function paginate(page) {
+    let totalPages;
+    fetch(url + "&page=" + page, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
+      }
+    })
+      .then(res => {
+        totalPages = res.headers.get("x-wp-totalpages");
+        console.log(totalPages);
+        return res.json();
+      })
+      .then(data => {
+        if (all && page < totalPages) {
+          page++;
+          paginate(page);
+        }
+        callback(data);
+      });
+  }
+  paginate(1);
 }
 export function postAuthenticated(url, token, payload, callback) {
   fetch(url, {

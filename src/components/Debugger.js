@@ -353,17 +353,21 @@ export default function Debugger(props) {
       "2019-12-03%2019.06.33.mp4"
     ];
     data.forEach((vid, index) => {
+      let parts = vid.replace("%20", " ").split(".");
+      parts.pop();
+      let title = parts.join(".");
+
       setTimeout(() => {
         postAuthenticated(
           "https://jonasholbech.dk/video_api/wp-json/wp/v2/videos",
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1ODQ2MTUyNzAsInN1YiI6IjEifQ.IcIoXTZldARoNaWJnv4vcIDqDtZoq0wZLIgtE0BSlBo",
+          localStorage.getItem("accessToken"),
           {
             status: "publish",
-            title: vid,
+            title: title,
             content: "",
             path: vid
           },
-          console.log
+          console.count
         );
       }, index * 1500);
     });

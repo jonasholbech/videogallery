@@ -16,13 +16,16 @@ export default function Playlists(props) {
   const [playlistName, setPlaylistName] = useState("");
   const [buttonDisabled, setButtonDisabled] = useState(true);
   useEffect(() => {
+    if (state.loaded.playlists) {
+      return;
+    }
     getAuthenticated(restGetPlaylistsUrl, state.user.accessToken, data => {
       dispatch({
         type: "setPlaylists",
         payload: data
       });
     });
-  }, [dispatch, state.user.accessToken]);
+  }, [dispatch, state.user.accessToken, state.loaded.playlists]);
   function formSubmit(e) {
     e.preventDefault();
     setButtonDisabled(true);

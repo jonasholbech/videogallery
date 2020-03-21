@@ -8,7 +8,11 @@ const initialState = {
     exp: null
   },
   videos: [],
-  playlists: []
+  playlists: [],
+  loaded: {
+    videos: false,
+    playlists: false
+  }
 };
 const store = createContext(initialState);
 const { Provider } = store;
@@ -28,10 +32,14 @@ const StateProvider = ({ children }) => {
             exp: null
           }
         };
-      case "setVideos":
-        return { ...state, videos: action.payload };
+      case "addToVideos":
+        return { ...state, videos: state.videos.concat(action.payload) };
       case "setPlaylists":
-        return { ...state, playlists: action.payload };
+        return {
+          ...state,
+          playlists: action.payload,
+          loaded: { playlists: true, videos: state.loaded.videos }
+        };
       case "addPlaylist":
         return { ...state, playlists: state.playlists.concat(action.payload) };
       case "removePlaylist":
