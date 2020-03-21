@@ -7,7 +7,7 @@ import {
   restUpdatePlaylistUrlBase,
   restUpdatePlaylistUrlFields
 } from "../modules/settings";
-import { putAuthenticated, getAuthenticated } from "../modules/fetch";
+import { putAuthenticated } from "../modules/fetch";
 import { store } from "../modules/store.js";
 import Navigation from "../components/Navigation";
 import Video from "../components/Video";
@@ -16,24 +16,8 @@ export default function Playlist(props) {
 
   //Ideen er fed nok, men skal droppes, for meget bøvle med at jeg ikke kan sætte
   useDispatchAuthenticatedGet(restGetPlaylistsUrl, "setPlaylists");
-  //useDispatchAuthenticatedGet(restGetVideosUrl, "setVideos");
 
-  useEffect(() => {
-    if (state.videos.length > 0) {
-      return;
-    }
-    getAuthenticated(
-      restGetVideosUrl,
-      state.user.accessToken,
-      data => {
-        dispatch({
-          type: "addToVideos",
-          payload: data
-        });
-      },
-      true
-    );
-  }, [dispatch, state.user.accessToken, state.videos.length]);
+  useDispatchAuthenticatedGet(restGetVideosUrl, "addToVideos", true);
 
   const current = state.playlists.find(pl => pl.id === Number(props.id));
   if (!current || state.videos.length === 0) {

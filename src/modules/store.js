@@ -33,7 +33,11 @@ const StateProvider = ({ children }) => {
           }
         };
       case "addToVideos":
-        return { ...state, videos: state.videos.concat(action.payload) };
+        return {
+          ...state,
+          videos: state.videos.concat(action.payload),
+          loaded: { playlists: state.loaded.playlists, videos: true }
+        }; //TODO: teknisk set ved jeg ikke hvor mange "pages" der er loaded
       case "setPlaylists":
         return {
           ...state,
