@@ -2,6 +2,7 @@ import React from "react";
 
 import { StateProvider } from "./modules/store.js";
 import MainRouter from "./MainRouter";
+import "./styles/superstylin.css";
 import "./App.css";
 
 function App() {

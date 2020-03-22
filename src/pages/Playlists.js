@@ -10,7 +10,6 @@ import { store } from "../modules/store.js";
 import Navigation from "../components/Navigation";
 export default function Playlists(props) {
   //TODO: ref to playlists in WP, who can watch
-  //TODO: lige nu henter den hver gang man besøger siden, kunne det ske en gang?
   const { state, dispatch } = useContext(store);
 
   const [playlistName, setPlaylistName] = useState("");

@@ -16,7 +16,7 @@ export function post(url, payload, callback) {
     .then(callback);
 }
 export function getAuthenticated(url, callback, all = false) {
-  //TODO: this assumes there's already an "?" in the url
+  //: this assumes there's already an "?" in the url
 
   function paginate(page) {
     let totalPages;
