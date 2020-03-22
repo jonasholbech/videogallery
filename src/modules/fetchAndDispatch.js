@@ -1,5 +1,5 @@
 //based on https://scotch.io/tutorials/create-a-custom-usefetch-react-hook
-import React, { useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 import { store } from "../modules/store.js";
 
 export const useDispatchAuthenticatedGet = (url, type, all = false) => {
