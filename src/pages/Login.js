@@ -8,6 +8,8 @@ import { url } from "../modules/settings";
 export default function Login(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [canSubmit, setCanSubmit] = useState(false);
   const { state, dispatch } = useContext(store);
 
   function submit(e) {
@@ -40,7 +42,8 @@ export default function Login(props) {
           localStorage.setItem("displayName", data.wp_user.data.display_name);
           navigate("/");
         } else {
-          throw new Error("HANDLE ME");
+          setErrorMessage(data.message);
+          //throw new Error("HANDLE ME");
         }
       }
     );
@@ -75,6 +78,7 @@ export default function Login(props) {
         onChange={e => setPassword(e.target.value)}
       />
       <button>Log Ind</button>
+      {errorMessage}
     </form>
   );
 }
