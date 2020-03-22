@@ -57,10 +57,10 @@ export default function Playlists(props) {
   return (
     <>
       <Navigation />
-      <main>
+      <main className="Playlists">
         <h1>Playlists</h1>
+        <h2>Add new playlist</h2>
         <form onSubmit={formSubmit}>
-          <h2>Add new playlist</h2>
           <input
             type="text"
             name="playlistname"
@@ -77,8 +77,15 @@ export default function Playlists(props) {
             return (
               <li key={pl.id}>
                 {pl.title.rendered}
-                <Link to={"/playlist/" + pl.id}>Edit</Link>
-                <button onClick={() => deletePlaylist(pl.id)}>Delete</button>
+                <Link to={"/playlist/" + pl.id} className="button smaller">
+                  Edit
+                </Link>
+                <button
+                  className="smaller"
+                  onClick={() => deletePlaylist(pl.id)}
+                >
+                  Delete
+                </button>
               </li>
             );
           })}

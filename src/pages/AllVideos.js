@@ -25,7 +25,7 @@ export default function AllVideos(props) {
   return (
     <>
       <Navigation />
-      <main>
+      <main className="AllVideos">
         <h1>All videos</h1>
         {state.videos.map(vid => {
           return (

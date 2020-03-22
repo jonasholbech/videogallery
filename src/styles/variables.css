@@ -1,0 +1,83 @@
+:root {
+  --color-white: #ffffff;
+  --color-black: #22292f;
+  --color-grey-lightest: #f8fafc;
+  --color-grey-lighter: #f1f5f8;
+  --color-grey-light: #dae1e7;
+  --color-grey-base: #b8c2cc;
+  --color-grey-dark: #8795a1;
+  --color-grey-darker: #606f7b;
+  --color-grey-darkest: #3d4852;
+
+  --color-red-lightest: #fcebea;
+  --color-red-lighter: #f9acaa;
+  --color-red-light: #ef5753;
+  --color-red-base: #e3342f;
+  --color-red-dark: #cc1f1a;
+  --color-red-darker: #621b18;
+  --color-red-darkest: #3b0d0c;
+
+  --color-orange-lightest: #fff5eb;
+  --color-orange-lighter: #fcd9b6;
+  --color-orange-light: #faad63;
+  --color-orange-base: #f6993f;
+  --color-orange-dark: #de751f;
+  --color-orange-darker: #613b1f;
+  --color-orange-darkest: #462a16;
+
+  --color-yellow-lightest: #fcfbeb;
+  --color-yellow-lighter: #fff9c2;
+  --color-yellow-light: #fff382;
+  --color-yellow-base: #ffed4a;
+  --color-yellow-dark: #f2d024;
+  --color-yellow-darker: #684f1d;
+  --color-yellow-darkest: #453411;
+
+  --color-green-lightest: #e3fcec;
+  --color-green-lighter: #a2f5bf;
+  --color-green-light: #51d88a;
+  --color-green-base: #38c172;
+  --color-green-dark: #1f9d55;
+  --color-green-darker: #1a4731;
+  --color-green-darkest: #0f2f21;
+
+  --color-teal-lightest: #e8fffe;
+  --color-teal-lighter: #a0f0ed;
+  --color-teal-light: #64d5ca;
+  --color-teal-base: #4dc0b5;
+  --color-teal-dark: #38a89d;
+  --color-teal-darker: #20504f;
+  --color-teal-darkest: #0d3331;
+
+  --color-blue-lightest: #eff8ff;
+  --color-blue-lighter: #bcdefa;
+  --color-blue-light: #6cb2eb;
+  --color-blue-base: #3490dc;
+  --color-blue-dark: #2779bd;
+  --color-blue-darker: #1c3d5a;
+  --color-blue-darkest: #12283a;
+
+  --color-indigo-lightest: #e6e8ff;
+  --color-indigo-lighter: #b2b7ff;
+  --color-indigo-light: #7886d7;
+  --color-indigo-base: #6574cd;
+  --color-indigo-dark: #5661b3;
+  --color-indigo-darker: #2f365f;
+  --color-indigo-darkest: #191e38;
+
+  --color-purple-lightest: #f3ebff;
+  --color-purple-lighter: #d6bbfc;
+  --color-purple-light: #a779e9;
+  --color-purple-base: #9561e2;
+  --color-purple-dark: #794acf;
+  --color-purple-darker: #382b5f;
+  --color-purple-darkest: #21183c;
+
+  --color-pink-lightest: #ffebef;
+  --color-pink-lighter: #ffbbca;
+  --color-pink-light: #fa7ea8;
+  --color-pink-base: #f66d9b;
+  --color-pink-dark: #eb5286;
+  --color-pink-darker: #6f213f;
+  --color-pink-darkest: #451225;
+}

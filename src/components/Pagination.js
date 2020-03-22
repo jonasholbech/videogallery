@@ -82,7 +82,7 @@ export default function Pagination({ children, currentPage, perPage = 10 }) {
   return (
     <>
       <div className="pagination">{links}</div>
-      {toShow}
+      <div className="items">{toShow}</div>
     </>
   );
 }

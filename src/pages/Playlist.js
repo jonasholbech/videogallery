@@ -48,14 +48,13 @@ export default function Playlist(props) {
   return (
     <>
       <Navigation />
-      <main>
+      <main className="Playlist">
         <h1>Editing {current.title.rendered}</h1>
         <h2>Videos</h2>
         <div className="editPlaylistVideoWrapper">
           <section>
             <h3>In playlist</h3>
             <Pagination currentPage={"/playlist/" + props.id}>
-              {/* pagination skal værew wrapper tror jeg */}
               {inPlaylist.map(vid => {
                 return (
                   <div key={vid.id}>

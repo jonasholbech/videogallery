@@ -61,7 +61,7 @@ export default function Login(props) {
     );
   }
   return (
-    <form onSubmit={submit} noValidate ref={formRef}>
+    <form className="Login" onSubmit={submit} noValidate ref={formRef}>
       <input
         type="text"
         name="username"

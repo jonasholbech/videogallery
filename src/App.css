@@ -9,32 +9,129 @@ html {
 #wrapper {
   margin: 1rem;
 }
+
 header > nav {
   display: flex;
   justify-content: space-evenly;
 }
-.editPlaylistVideoWrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  align-items: start;
-}
-.editPlaylistVideoWrapper > section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: start;
-}
-.editPlaylistVideoWrapper h3 {
-  grid-column: 1/-1;
+/*
+/**************** general FORMS **************/
+form *,
+.button,
+button {
+  font-size: 1rem;
+  line-height: 1;
+  padding: 15px 25px;
 }
 
+input[type="email"],
+input[type="text"],
+input[type="number"],
+input[type="password"] {
+  border: 2px solid var(--color-grey-lighter);
+  background-color: var(--color-grey-lighter);
+  color: #343334;
+}
+input[type="email"]:invalid:not(:focus):not(:placeholder-shown),
+input[type="text"]:invalid:not(:focus):not(:placeholder-shown),
+input[type="number"]:invalid:not(:focus):not(:placeholder-shown),
+input[type="password"]:invalid:not(:focus):not(:placeholder-shown) {
+  border: 2px solid var(--color-red-base);
+}
+input[type="email"]:focus,
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="password"]:focus {
+  border: 2px solid var(--color-blue-base);
+}
+
+button,
+input[type="button"],
+input[type="submit"],
+.button {
+  font-weight: 700;
+  border: 2px solid transparent;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease-in-out 0s;
+  background: var(--color-blue-light);
+  color: #fff;
+  box-shadow: 0 3px 0 var(--color-blue-base);
+}
+.smaller {
+  padding: 5px 10px;
+  font-weight: 400;
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover,
+.button:hover {
+  background: var(--color-blue-base);
+  box-shadow: 0 3px 0 var(--color-blue-light);
+}
+button:active,
+input[type="button"]:active,
+input[type="submit"]:active,
+.button:active,
+button:focus,
+input[type="button"]:focus,
+input[type="submit"]:focus,
+.button:focus {
+  background: var(--color-blue-dark);
+}
+button[disabled],
+input[type="submit"][disabled],
+input[type="button"][disabled] {
+  background: var(--color-grey-lighter);
+  box-shadow: 0 3px 0 var(--color-grey-base);
+  color: var(--color-grey-dark);
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  cursor: not-allowed;
+}
+/**************** LOGIN **************/
+.Login {
+  display: flex;
+  flex-direction: column;
+}
+.Login > * {
+  margin-bottom: 1rem;
+}
+
+/**************** VIDEOS **************/
+.video h4 {
+  margin-bottom: 0rem;
+}
 .center-cropped {
   object-fit: none; /* Do not scale the image */
   object-position: center; /* Center the image within the element */
-  height: 200px;
-  width: 200px;
+  height: calc(100vmin - 2rem);
+  width: calc(100vmin - 2rem);
+}
+/**************** PLAYLISTS **************/
+.Playlists form {
+  display: flex;
+  justify-content: space-between;
 }
 
+.Playlists ul li {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  grid-gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.Playlists li:hover {
+  background: var(--color-grey-lighter);
+}
+.Playlists a,
+.Playlists button {
+  justify-self: end;
+}
+/**************** VIDEO MODAL **************/
 #modal button {
   background-color: #ad343e;
   padding: 5px 25px;
@@ -72,8 +169,40 @@ header > nav {
   display: inline-block;
   margin-right: 15px;
 }
+/************ PAGINATION ************/
 .pagination {
   grid-column: 1/-1;
   display: flex;
   justify-content: space-around;
+}
+.pagination button {
+  padding: 2px;
+  font-weight: 200;
+}
+
+/**************** PLAYLIST **************/
+.Playlist .center-cropped {
+  object-fit: none; /* Do not scale the image */
+  object-position: center; /* Center the image within the element */
+  height: calc(50vmin - 2rem);
+  width: calc(50vmin - 2rem);
+}
+.editPlaylistVideoWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+.editPlaylistVideoWrapper .items {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+}
+.editPlaylistVideoWrapper .items button {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+}
+.editPlaylistVideoWrapper h3 {
+  grid-column: 1/-1;
 }
