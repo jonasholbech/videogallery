@@ -12,11 +12,22 @@ export default function Login(props) {
   const [canSubmit, setCanSubmit] = useState(false);
   const { state, dispatch } = useContext(store);
 
+  function inputChanged(e) {
+    if (e.target.name === "username") {
+      setUsername(e.target.value);
+    } else if (e.target.name === "password") {
+      setPassword(e.target.value);
+    }
+    if (username.length > 2 && password.length > 2) {
+      setCanSubmit(true);
+    } else {
+      setCanSubmit(false);
+    }
+  }
   function submit(e) {
     e.preventDefault();
     post(
       `${url}api-bearer-auth/v1/login/`,
-
       {
         username,
         password
@@ -69,15 +80,15 @@ export default function Login(props) {
         type="text"
         name="username"
         value={username}
-        onChange={e => setUsername(e.target.value)}
+        onChange={inputChanged}
       />
       <input
         type="password"
         name="password"
         value={password}
-        onChange={e => setPassword(e.target.value)}
+        onChange={inputChanged}
       />
-      <button>Log Ind</button>
+      <button disabled={!canSubmit}>Log Ind</button>
       {errorMessage}
     </form>
   );
