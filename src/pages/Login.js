@@ -1,18 +1,16 @@
 import React, { useState, useContext, useRef } from "react";
 import { navigate } from "@reach/router";
-import styles from "./Login.module.css";
+
 import { store } from "../modules/store.js";
 import { post } from "../modules/fetch";
 import { url } from "../modules/settings";
 
 export default function Login(props) {
   const [username, setUsername] = useState("");
-  const [userNameHasError, setUsernameHasError] = useState(false);
   const [password, setPassword] = useState("");
-  const [passwordHasError, setPasswordHasError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const { state, dispatch } = useContext(store);
+  const { dispatch } = useContext(store);
   const formRef = useRef(null);
 
   function checkValidity() {

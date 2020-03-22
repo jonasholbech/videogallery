@@ -1,6 +1,0 @@
-.error {
-  border: 1px solid red;
-}
-.error:placeholder-shown {
-  border: 1px solid #000;
-}
