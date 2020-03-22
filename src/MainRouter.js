@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { Router, Link } from "@reach/router";
+import { Router } from "@reach/router";
 import { store } from "./modules/store.js";
 import { post } from "./modules/fetch";
 import { url } from "./modules/settings";
@@ -11,7 +11,7 @@ import Playlist from "./pages/Playlist";
 import Debugger from "./components/Debugger";
 import Dashboard from "./pages/Dashboard";
 function PrivateRoute(props) {
-  const { state, dispatch } = useContext(store);
+  const { state } = useContext(store);
 
   if (!state.user.loggedIn) {
     return <Login />;
@@ -20,7 +20,7 @@ function PrivateRoute(props) {
   return state.user.loggedIn ? <Comp {...props} /> : <Login />;
 }
 function LoggedIn(props) {
-  const { state, dispatch } = useContext(store);
+  const { state } = useContext(store);
   if (!state.user.loggedIn) {
     return <Login />;
   }
