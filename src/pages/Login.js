@@ -36,8 +36,6 @@ export default function Login(props) {
       },
       data => {
         if (data.access_token) {
-          //TODO: store user level in state as well, wp_user.caps.administrator=true
-
           const exp = new Date().getTime() / 1000 + data.expires_in;
           dispatch({
             type: "login",
@@ -58,26 +56,10 @@ export default function Login(props) {
           navigate("/");
         } else {
           setErrorMessage(data.message);
-          //throw new Error("HANDLE ME");
         }
       }
     );
   }
-  /*
-"wp_user": {
-        "data": {
-            "ID": "1",
-            "user_login": "holbech",
-            "user_pass": "$P$BYkdHGmTfL0Qpq5xyio1NnRpc.euhf/",
-            "user_nicename": "holbech",
-            "user_email": "jh@jonasholbech.dk",
-            "user_url": "",
-            "user_registered": "2020-03-16 23:20:02",
-            "user_activation_key": "",
-            "user_status": "0",
-            "display_name": "holbech"
-        },
-*/
   return (
     <form onSubmit={submit} noValidate ref={formRef}>
       <input
