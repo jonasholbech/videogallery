@@ -1,9 +1,7 @@
 //based on https://scotch.io/tutorials/create-a-custom-usefetch-react-hook
-import React, { useEffect, useState, useContext } from "react";
-import { store } from "../modules/store.js";
+import React, { useEffect, useState } from "react";
 
 export const useAuthenticatedFetch = url => {
-  const { state, dispatch } = useContext(store);
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
 
@@ -14,7 +12,7 @@ export const useAuthenticatedFetch = url => {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${state.user.accessToken}`
+            Authorization: `Bearer ${localStorage.getItem("accessToken")}`
           }
         });
         const json = await res.json();

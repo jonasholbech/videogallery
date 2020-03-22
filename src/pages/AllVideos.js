@@ -13,7 +13,6 @@ export default function AllVideos(props) {
     }
     getAuthenticated(
       restGetVideosUrl,
-      state.user.accessToken,
       data => {
         dispatch({
           type: "addToVideos",
@@ -22,7 +21,7 @@ export default function AllVideos(props) {
       },
       true
     );
-  }, [dispatch, state.user.accessToken, state.videos.length]);
+  }, [dispatch, state.videos.length]);
   return (
     <>
       <Navigation />

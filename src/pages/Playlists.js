@@ -19,19 +19,18 @@ export default function Playlists(props) {
     if (state.loaded.playlists) {
       return;
     }
-    getAuthenticated(restGetPlaylistsUrl, state.user.accessToken, data => {
+    getAuthenticated(restGetPlaylistsUrl, data => {
       dispatch({
         type: "setPlaylists",
         payload: data
       });
     });
-  }, [dispatch, state.user.accessToken, state.loaded.playlists]);
+  }, [dispatch, state.loaded.playlists]);
   function formSubmit(e) {
     e.preventDefault();
     setButtonDisabled(true);
     postAuthenticated(
       restPostPlaylistUrl,
-      state.user.accessToken,
       {
         status: "publish",
         title: playlistName,
@@ -49,16 +48,12 @@ export default function Playlists(props) {
     );
   }
   function deletePlaylist(id) {
-    deleteAuthenticated(
-      restPostPlaylistUrl + id,
-      state.user.accessToken,
-      data => {
-        dispatch({
-          type: "removePlaylist",
-          payload: id
-        });
-      }
-    );
+    deleteAuthenticated(restPostPlaylistUrl + id, data => {
+      dispatch({
+        type: "removePlaylist",
+        payload: id
+      });
+    });
   }
   return (
     <>

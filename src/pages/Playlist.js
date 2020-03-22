@@ -36,7 +36,6 @@ export default function Playlist(props) {
   function addVideoToPlaylist(id) {
     putAuthenticated(
       restUpdatePlaylistUrlBase + props.id + restUpdatePlaylistUrlFields,
-      state.user.accessToken,
       { videos: inPlaylist.map(vid => vid.id).concat(id) },
       data => {
         dispatch({
