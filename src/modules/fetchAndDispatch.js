@@ -17,7 +17,7 @@ export const useDispatchAuthenticatedGet = (url, type, all = false) => {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${state.user.accessToken}`
+            Authorization: `Bearer ${localStorage.getItem("accessToken")}`
           }
         });
         const totalPages = await res.headers.get("x-wp-totalpages");
