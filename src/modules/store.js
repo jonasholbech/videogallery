@@ -29,7 +29,8 @@ const StateProvider = ({ children }) => {
             loggedIn: false,
             access_token: null,
             refresh_token: null,
-            exp: null
+            exp: null,
+            role: null
           }
         };
       case "addToVideos":

@@ -46,6 +46,7 @@ export default function Login(props) {
               accessToken: data.access_token,
               refreshToken: data.refresh_token,
               exp: exp,
+              role: data.wp_user.roles[0],
               displayName: data.wp_user.data.display_name
             }
           });
@@ -53,6 +54,7 @@ export default function Login(props) {
           localStorage.setItem("exp", exp);
           localStorage.setItem("refreshToken", data.refresh_token);
           localStorage.setItem("displayName", data.wp_user.data.display_name);
+          localStorage.setItem("role", data.wp_user.roles[0]);
           navigate("/");
         } else {
           setErrorMessage(data.message);
