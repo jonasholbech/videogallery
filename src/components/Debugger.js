@@ -2,7 +2,7 @@ import React from "react";
 import { postAuthenticated } from "../modules/fetch";
 export default function Debugger(props) {
   function run() {
-    const data = [
+    /*const data = [
       "2011-09-11%2015.59.00.MTS",
       "2011-09-11%2017.55.00.MTS",
       "2011-09-11%2018.49.00.MTS",
@@ -351,6 +351,17 @@ export default function Debugger(props) {
       "2019-11-16%2016.06.09.mp4",
       "2019-11-27%2019.36.19.mp4",
       "2019-12-03%2019.06.33.mp4"
+    ];*/
+    const data = [
+      "2010-11-18 16.56.MTS",
+      "2011-09-28 19.04.MTS",
+      "2011-10-01 11.24.MTS",
+      "2011-11-11 17.25.MTS",
+      "2011-11-11 20.19.MTS",
+      "2011-11-13 20.39.MTS",
+      "2011-11-14 20.19.MTS",
+      "2011-11-14 20.20.MTS",
+      "2011-11-14 20.59.MTS"
     ];
     data.forEach((vid, index) => {
       let parts = vid.replace("%20", " ").split(".");
@@ -367,7 +378,7 @@ export default function Debugger(props) {
             content: "",
             path: vid
           },
-          console.count
+          console.log
         );
       }, index * 1500);
     });

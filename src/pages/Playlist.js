@@ -11,6 +11,8 @@ import { putAuthenticated } from "../modules/fetch";
 import { store } from "../modules/store.js";
 import Navigation from "../components/Navigation";
 import Video from "../components/Video";
+import Pagination from "../components/Pagination";
+
 export default function Playlist(props) {
   const { state, dispatch } = useContext(store);
 
@@ -53,44 +55,49 @@ export default function Playlist(props) {
         <div className="editPlaylistVideoWrapper">
           <section>
             <h3>In playlist</h3>
-            {inPlaylist.map(vid => {
-              return (
-                <div key={vid.id}>
-                  <Video
-                    path={vid.path}
-                    onAdd=""
-                    onRemove=""
-                    header={vid.title.rendered}
-                    isOwner=""
-                    inPlaylist=""
-                    video_id={vid.id}
-                  />
-                  <button>Remove from playlist</button>
-                </div>
-              );
-            })}
+            <Pagination currentPage={"/playlist/" + props.id}>
+              {/* pagination skal værew wrapper tror jeg */}
+              {inPlaylist.map(vid => {
+                return (
+                  <div key={vid.id}>
+                    <Video
+                      path={vid.path}
+                      onAdd=""
+                      onRemove=""
+                      header={vid.title.rendered}
+                      isOwner=""
+                      inPlaylist=""
+                      video_id={vid.id}
+                    />
+                    <button>Remove from playlist</button>
+                  </div>
+                );
+              })}
+            </Pagination>
           </section>
           <section>
             <h3>Not in playlist</h3>
-            {notInPlaylist.map(vid => {
-              return (
-                <div key={vid.id}>
-                  <Video
-                    key={vid.id}
-                    path={vid.path}
-                    onAdd=""
-                    onRemove=""
-                    header={vid.title.rendered}
-                    isOwner=""
-                    inPlaylist=""
-                    video_id={vid.id}
-                  />
-                  <button onClick={() => addVideoToPlaylist(vid.id)}>
-                    Add to playlist
-                  </button>
-                </div>
-              );
-            })}
+            <Pagination currentPage={"/playlist/" + props.id}>
+              {notInPlaylist.map(vid => {
+                return (
+                  <div key={vid.id}>
+                    <Video
+                      key={vid.id}
+                      path={vid.path}
+                      onAdd=""
+                      onRemove=""
+                      header={vid.title.rendered}
+                      isOwner=""
+                      inPlaylist=""
+                      video_id={vid.id}
+                    />
+                    <button onClick={() => addVideoToPlaylist(vid.id)}>
+                      Add to playlist
+                    </button>
+                  </div>
+                );
+              })}
+            </Pagination>
           </section>
         </div>
       </main>

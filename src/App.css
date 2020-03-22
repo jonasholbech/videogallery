@@ -57,14 +57,6 @@ header > nav {
   width: 100vw;
   min-height: 100vh;
 }
-/*#modal > div {
-  background-color: white;
-  max-width: 80vw;
-  height: auto;
-  margin: 10vw;
-  border-radius: 5px;
-  text-align: center;
-}*/
 
 #modal video {
   display: block;
@@ -79,4 +71,9 @@ header > nav {
 #modal .buttons button {
   display: inline-block;
   margin-right: 15px;
+}
+.pagination {
+  grid-column: 1/-1;
+  display: flex;
+  justify-content: space-around;
 }
