@@ -1,22 +1,37 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
 import { navigate } from "@reach/router";
-
+import styles from "./Login.module.css";
 import { store } from "../modules/store.js";
 import { post } from "../modules/fetch";
 import { url } from "../modules/settings";
 
 export default function Login(props) {
   const [username, setUsername] = useState("");
+  const [userNameHasError, setUsernameHasError] = useState(false);
   const [password, setPassword] = useState("");
+  const [passwordHasError, setPasswordHasError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [canSubmit, setCanSubmit] = useState(false);
-  const { state, dispatch } = useContext(store);
 
+  const { state, dispatch } = useContext(store);
+  const formRef = useRef(null);
+
+  function checkValidity() {
+    const form = formRef.current;
+    form.elements.submit.disabled = !form.checkValidity();
+  }
+  function inputChanged(e) {
+    if (e.target.name === "username") {
+      setUsername(e.target.value);
+    } else if (e.target.name === "password") {
+      setPassword(e.target.value);
+    }
+    checkValidity();
+  }
   function submit(e) {
     e.preventDefault();
+
     post(
       `${url}api-bearer-auth/v1/login/`,
-
       {
         username,
         password
@@ -64,20 +79,30 @@ export default function Login(props) {
         },
 */
   return (
-    <form onSubmit={submit}>
+    <form onSubmit={submit} noValidate ref={formRef}>
       <input
         type="text"
         name="username"
+        minLength="3"
+        required
+        placeholder="Username"
+        onFocus={checkValidity}
+        onBlur={checkValidity}
         value={username}
-        onChange={e => setUsername(e.target.value)}
+        onChange={inputChanged}
       />
       <input
         type="password"
         name="password"
+        minLength="3"
+        required
+        placeholder="password"
+        onFocus={checkValidity}
+        onBlur={checkValidity}
         value={password}
-        onChange={e => setPassword(e.target.value)}
+        onChange={inputChanged}
       />
-      <button>Log Ind</button>
+      <input type="submit" name="submit" value="Log In" disabled />
       {errorMessage}
     </form>
   );
