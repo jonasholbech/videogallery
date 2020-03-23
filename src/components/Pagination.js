@@ -27,18 +27,17 @@ export default function Pagination({ children, currentPage, perPage = 10 }) {
       </button>
     );
   }
-
-  if (page - 1 > 0) {
-    links.push(
-      <button key={page - 1} onClick={() => setPage(page - 1)}>
-        {page - 1}
-      </button>
-    );
-  }
   if (page - 2 > 0) {
     links.push(
       <button key={page - 2} onClick={() => setPage(page - 2)}>
         {page - 2}
+      </button>
+    );
+  }
+  if (page - 1 > 0) {
+    links.push(
+      <button key={page - 1} onClick={() => setPage(page - 1)}>
+        {page - 1}
       </button>
     );
   }

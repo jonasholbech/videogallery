@@ -13,6 +13,7 @@ html {
 header > nav {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
 }
 /*
 /**************** general FORMS **************/
@@ -182,8 +183,6 @@ input[type="button"][disabled] {
 
 /**************** PLAYLIST **************/
 .Playlist .center-cropped {
-  object-fit: none; /* Do not scale the image */
-  object-position: center; /* Center the image within the element */
   height: calc(50vmin - 2rem);
   width: calc(50vmin - 2rem);
 }
@@ -198,6 +197,16 @@ input[type="button"][disabled] {
   grid-template-columns: 1fr;
   align-items: start;
 }
+@media screen and (min-width: 700px) {
+  .editPlaylistVideoWrapper .items {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .Playlist .center-cropped {
+    height: calc(25vmin - 2rem);
+    width: calc(25vmin - 2rem);
+  }
+}
 .editPlaylistVideoWrapper .items button {
   display: block;
   width: 100%;
@@ -205,4 +214,21 @@ input[type="button"][disabled] {
 }
 .editPlaylistVideoWrapper h3 {
   grid-column: 1/-1;
+}
+
+/********* ALLVIDEOS ***********/
+.AllVideos {
+  display: grid;
+}
+@media screen and (min-width: 550px) {
+  .AllVideos {
+    grid-template-columns: 1fr 1fr;
+  }
+  .AllVideos h1 {
+    grid-column: 1/-1;
+  }
+  .AllVideos .center-cropped {
+    height: 250px;
+    width: 250px;
+  }
 }

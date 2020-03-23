@@ -61,6 +61,22 @@ const StateProvider = ({ children }) => {
         });
         console.log(state.playlists, updatedPlaylists);
         return { ...state, playlists: updatedPlaylists };
+      case "updateVideoPlaylists":
+        const updatedVideos = state.videos.map(item => {
+          if (item.id === action.payload.id) {
+            item.playlists = action.payload.playlists;
+          }
+          return item;
+        });
+        return { ...state, videos: updatedVideos };
+      /*const updatedPlaylists = state.playlists.map(item => {
+            if (item.id === action.payload.id) {
+              item.videos = action.payload.videos;
+            }
+            return item;
+          });
+          console.log(state.playlists, updatedPlaylists);
+          return { ...state, playlists: updatedPlaylists };*/
       default:
         throw new Error("UNHANDLED action.type");
     }
