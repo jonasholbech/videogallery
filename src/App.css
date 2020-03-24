@@ -186,6 +186,7 @@ input[type="button"][disabled] {
   height: calc(50vmin - 2rem);
   width: calc(50vmin - 2rem);
 }
+
 .editPlaylistVideoWrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -217,18 +218,24 @@ input[type="button"][disabled] {
 }
 
 /********* ALLVIDEOS ***********/
-.AllVideos {
+.AllVideos .videos {
   display: grid;
 }
+.AllVideos form * {
+  padding: 5px;
+}
 @media screen and (min-width: 550px) {
-  .AllVideos {
+  .AllVideos .videos {
     grid-template-columns: 1fr 1fr;
   }
-  .AllVideos h1 {
-    grid-column: 1/-1;
-  }
+
   .AllVideos .center-cropped {
     height: 250px;
     width: 250px;
+  }
+}
+@media screen and (min-width: 850px) {
+  .AllVideos .videos {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
