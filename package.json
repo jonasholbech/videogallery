@@ -1,7 +1,17 @@
 {
   "name": "videogallery",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonasholbech/videogallery.git"
+  },
+  "keywords": [],
+  "author": "Jonas Holbech",
+  "bugs": {
+    "url": "https://github.com/jonasholbech/videogallery/issues"
+  },
+  "homepage": "https://github.com/jonasholbech/videogallery#readme",
   "dependencies": {
     "@reach/router": "^1.3.3",
     "@testing-library/jest-dom": "^4.2.4",
